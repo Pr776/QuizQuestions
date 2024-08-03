@@ -16,6 +16,7 @@ public class QuestionServiceImpl implements QuestionService {
 
     @Autowired
     public void QuestionService(QuestionRepository questionRepository) {
+
         this.questionRepository = questionRepository;
     }
 
