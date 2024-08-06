@@ -1,7 +1,11 @@
 package com.priyanka.Microservices.services;
 
 import com.priyanka.Microservices.entity.QuestionClass;
+
 import org.springframework.http.ResponseEntity;
+
+import org.springframework.stereotype.Service;
+
 
 import java.util.List;
 
