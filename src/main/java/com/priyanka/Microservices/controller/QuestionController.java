@@ -3,6 +3,8 @@ package com.priyanka.Microservices.controller;
 import com.priyanka.Microservices.entity.QuestionClass;
 import com.priyanka.Microservices.services.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,14 +17,17 @@ public class QuestionController {
     private QuestionService questionService;
 
     @PostMapping
-    public QuestionClass createQuestion(@RequestBody QuestionClass question) {
+    public ResponseEntity<QuestionClass> createQuestion(@RequestBody QuestionClass question) {
         return questionService.createQuestion(question);
 
     }
     @GetMapping
-    public List<QuestionClass> getAllQuestion(){
-
+    public ResponseEntity<List<QuestionClass>> getAllQuestion(){
         return questionService.getAllQuestion();
+    }
+    @GetMapping("category/{category}")
+    public ResponseEntity<List<QuestionClass>>getQuestionsByCategory(@PathVariable String category){
+        return questionService.getQuestionsByCategory(category);
     }
 
 
